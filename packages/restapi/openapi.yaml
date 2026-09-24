@@ -1,0 +1,84 @@
+openapi: 3.0.0
+paths:
+  /:
+    get:
+      operationId: AppController_getHello
+      parameters: []
+      responses:
+        "200":
+          description: ""
+      tags:
+        - App
+  /health:
+    get:
+      operationId: HealthController_check
+      parameters: []
+      responses:
+        "200":
+          description: ""
+      tags:
+        - Health
+  /users:
+    post:
+      operationId: UserController_create
+      parameters: []
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponseDto"
+      summary: Create new user
+      tags: &a1
+        - users
+    get:
+      operationId: UserController_findAll
+      parameters: []
+      responses:
+        "200":
+          description: ""
+      tags: *a1
+  /users/{id}:
+    get:
+      operationId: UserController_findById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+      tags: *a1
+info:
+  title: Nest Demo API
+  description: Nest Demo REST API
+  version: 1.0.0
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    UserResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 68d3c8...
+        email:
+          type: string
+          example: john@example.com
+        name:
+          type: string
+          example: John Doe
+        createdAt:
+          format: date-time
+          type: string
+          example: 2026-09-24
+        updatedAt:
+          format: date-time
+          type: string
+          example: 2026-09-24
+      required:
+        - id
+        - email
+        - name
+        - createdAt
+        - updatedAt

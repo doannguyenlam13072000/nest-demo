@@ -38,6 +38,9 @@ dev-web:
 dev-api:
 	pnpm dev:api
 
+generate:
+	pnpm openapi:generate
+
 # =========================
 # Docker
 # =========================

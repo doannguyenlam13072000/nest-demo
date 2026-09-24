@@ -9,11 +9,13 @@ export type UserDocument = HydratedDocument<UserSchema>;
 })
 export class UserSchema {
     @Prop({
+        type: String,
         required: true,
     })
     name: string;
 
     @Prop({
+        type: String,
         required: true,
         unique: true,
         index: true,

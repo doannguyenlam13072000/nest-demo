@@ -6,9 +6,12 @@
         "dev:web": "pnpm --filter web dev",
         "dev:api": "pnpm --filter api start:dev",
         "lint:web": "pnpm --filter web lint",
-        "lint:api": "pnpm --filter api lint"
+        "lint:api": "pnpm --filter api lint",
+        "openapi:generate": "tsx --tsconfig apps/api/tsconfig.json apps/api/scripts/generate-openapi.ts"
     },
     "devDependencies": {
-        "eslint": "^10.11.0"
+        "eslint": "^10.11.0",
+        "tsx": "^4.23.15",
+        "yaml": "^2.9.1"
     }
 }

@@ -7,12 +7,18 @@ import { HealthModule } from './modules/health/health.module.js';
 import { UsersModule } from './modules/user/user.module.js';
 import { RedisModule } from '@/infrastructure/redis/redis.module.js';
 import { MongoDbModule } from '@/infrastructure/mongodb/mongodb.module.js';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env',
+      envFilePath: resolve(__dirname, '../.env'),
       load: [configuration]
     }),
 

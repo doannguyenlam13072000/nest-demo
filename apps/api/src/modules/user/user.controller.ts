@@ -1,7 +1,10 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { UserService } from "./application/user.service.js";
 import { CreateUserDto } from "./dto/create-user.dto.js";
+import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
+import { UserResponseDto } from "./dto/user-res.dto.js";
 
+@ApiTags('users')
 @Controller('users')
 export class UserController {
     constructor(
@@ -9,7 +12,13 @@ export class UserController {
     ) { }
 
     @Post()
-    create(@Body() body: CreateUserDto) {
+    @ApiOperation({
+        summary: 'Create new user'
+    })
+    @ApiResponse({
+        type: UserResponseDto
+    })
+    create(@Body() body: CreateUserDto): Promise<CreateUserDto> {
         return this.userService.create(body);
     }
 
