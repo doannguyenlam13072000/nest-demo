@@ -1,0 +1,7 @@
+{
+    "name": "@nest-demo/rest-api",
+    "private": true,
+    "version": "0.0.0",
+    "main": "./generated/index.ts",
+    "types": "./generated/index.ts"
+  }
