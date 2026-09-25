@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { UserService } from "./application/user.service.js";
 import { CreateUserDto } from "./dto/create-user.dto.js";
-import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
+import { ApiOperation, ApiParam, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { UserResponseDto } from "./dto/user-res.dto.js";
 
 @ApiTags('users')
@@ -23,6 +23,15 @@ export class UserController {
     }
 
     @Get(':id')
+    @ApiOperation({
+        summary: 'Get user by Id'
+    })
+    @ApiParam({
+        name: 'id',
+        type: String,
+        required: true,
+        description: 'User ID',
+    })
     findById(@Param('id') id: string) {
         return this.userService.findById(id);
     }

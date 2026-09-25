@@ -42,10 +42,17 @@ paths:
   /users/{id}:
     get:
       operationId: UserController_findById
-      parameters: []
+      parameters:
+        - name: id
+          required: true
+          in: path
+          description: User ID
+          schema:
+            type: string
       responses:
         "200":
           description: ""
+      summary: Get user by Id
       tags: *a1
 info:
   title: Nest Demo API

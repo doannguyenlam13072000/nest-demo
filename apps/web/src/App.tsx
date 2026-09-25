@@ -3,11 +3,9 @@ import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
-import { users } from '@nest-demo/rest-api'
 
 function App() {
   const [count, setCount] = useState(0)
-  const firstUser = users[0]
 
   return (
     <>
@@ -22,7 +20,6 @@ function App() {
           <p>
             Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
           </p>
-          <pre>{JSON.stringify(firstUser, null, 2)}</pre>
         </div>
         <button
           type="button"

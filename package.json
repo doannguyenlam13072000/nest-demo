@@ -7,9 +7,11 @@
         "dev:api": "pnpm --filter api start:dev",
         "lint:web": "pnpm --filter web lint",
         "lint:api": "pnpm --filter api lint",
-        "openapi:generate": "tsx --tsconfig apps/api/tsconfig.json apps/api/scripts/generate-openapi.ts"
+        "generate:yaml": "tsx --tsconfig apps/api/tsconfig.json apps/api/scripts/generate-openapi.ts",
+        "generate:api": "openapi-generator-cli generate -i packages/restapi/openapi.yaml -g typescript-axios -o packages/restapi/generated"
     },
     "devDependencies": {
+        "@openapitools/openapi-generator-cli": "^2.41.0",
         "eslint": "^10.11.0",
         "tsx": "^4.23.15",
         "yaml": "^2.9.1"
